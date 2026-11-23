@@ -12,6 +12,7 @@ import {
   Upload,
 } from 'lucide-react';
 import { LockConfig, ThemeMode } from '../types/debt';
+import { PWAInstallButton } from './PWAInstallButton';
 
 interface SettingsViewProps {
   theme: ThemeMode;
@@ -72,6 +73,9 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           تخصيص المظهر وحماية التطبيق برمز PIN والبصمة وإدارة النسخ الاحتياطية المحلية
         </p>
       </div>
+
+      {/* Install App (PWA) */}
+      <PWAInstallButton variant="card" />
 
       {/* Appearance / Theme */}
       <section className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 shadow-xs space-y-4">

@@ -59,6 +59,8 @@ import { ToastContainer } from './components/ToastContainer';
 import { PrintStatement } from './components/PrintStatement';
 import { LockScreen } from './components/LockScreen';
 import { PinModalMode, PinSetupModal } from './components/PinSetupModal';
+import { PWAInstallButton } from './components/PWAInstallButton';
+import { OfflineIndicator } from './components/OfflineIndicator';
 
 type ConfirmState =
   | { kind: 'none' }
@@ -836,6 +838,12 @@ export default function App() {
             </button>
 
             <div className="flex items-center gap-1.5 shrink-0">
+              <PWAInstallButton
+                variant="compact"
+                onInstalledToast={() =>
+                  notify('success', 'تم تثبيت تطبيق دَيني على جهازك بنجاح.')
+                }
+              />
               {lockConfig.enabled && (
                 <button
                   type="button"
@@ -885,6 +893,12 @@ export default function App() {
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
+              <PWAInstallButton
+                variant="compact"
+                onInstalledToast={() =>
+                  notify('success', 'تم تثبيت تطبيق دَيني على جهازك بنجاح.')
+                }
+              />
               {lockConfig.enabled && (
                 <button
                   type="button"
@@ -1188,6 +1202,8 @@ export default function App() {
         debts={printDebts}
         payments={printPayments}
       />
+
+      <OfflineIndicator />
     </>
   );
 }
